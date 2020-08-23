@@ -7,7 +7,7 @@ function setup() {
 }
 
 function draw() {
-  background(21, 65);
+  background(20);
   for (i = 0; i < entities.length; i++) {
     entities[i].updateEnt();
     entities[i].draw();
