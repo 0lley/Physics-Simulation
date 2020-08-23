@@ -8,6 +8,8 @@ function setup() {
 
 function draw() {
   background(20);
+  noStroke();
+  circle(windowWidth / 2, windowHeight / 2, 100);
   for (i = 0; i < entities.length; i++) {
     entities[i].updateEnt();
     entities[i].draw();

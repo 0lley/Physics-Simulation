@@ -1,7 +1,7 @@
 class Celestial {
     constructor() {
-        this.radius = 10 + random() * 20;
-        this.mass = floor(100 + random() * 50);
+        this.radius = 10 + random() * 50;
+        this.mass = Math.pow(this.radius, 2) * (5 + random() * 2.5);
         this.pos = createVector(mouseX, mouseY);
         this.vel = createVector(5 * random() - 2.5, 5 * random() - 2.5);
     }
