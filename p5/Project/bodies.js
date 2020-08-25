@@ -11,8 +11,9 @@ class Celestial {
         circle(this.pos.x, this.pos.y, this.radius);
     }
 
-    updateEnt(accel) {
-        this.vel.add(accel);
+    updateEnt(baryCentre) {
+        // this.vel.add(this.mass*10000/pow((dist(baryCentre, this.pos)), 2));
+        this.vel.add(dist(this.pos, baryCentre));
         this.pos.add(this.vel);
     }
 }
