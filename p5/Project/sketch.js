@@ -13,12 +13,13 @@ function draw() {
   circle(windowWidth / 2, windowHeight / 2, 100);
   baryCentre.set(windowWidth / 2, windowHeight / 2);
   for (i = 0; i < entities.length; i++) {
-    entities[i].updateEnt(baryCentre);
+    entities[i].updateEnt(baryCentre, mass - entities[i].mass);
     entities[i].draw();
     if (entities[i].pos.x > windowWidth + 1000 || entities[i].pos.x < -1000 || entities[i].pos.y < -1000 || entities[i].pos.y > windowHeight + 1000) {
       mass -= entities[i].mass;
       entities.splice(i, 1);
     }
+    // console.log(entities.length);
   }
 //   console.log(mass);
 }
