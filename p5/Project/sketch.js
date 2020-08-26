@@ -8,12 +8,12 @@ function setup() {
 }
 
 function draw() {
-  background(20);
+  background(10, 150);
   noStroke();
   circle(windowWidth / 2, windowHeight / 2, 10);
   centre.set(windowWidth / 2, windowHeight / 2);
   for (i = 0; i < entities.length; i++) {
-    entities[i].updateEnt(centre, mass - entities[i].mass);
+    entities[i].updateEnt(centre, 10000);
     entities[i].draw();
     if (entities[i].pos.x > windowWidth + 2500 || entities[i].pos.x < -2500 || entities[i].pos.y < -2500 || entities[i].pos.y > windowHeight + 2500) {
       mass -= entities[i].mass;
