@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Oxygen|Merriweather:300i|Questrial|Nunito:300|IBM+Plex+Sans:300i");
+:root {
+    --main-bg-colour: #636363;
+    --left-panel-colour: #1d3557;
+    --bottom-panel-colour: #05668d;
+    --right-panel-colour: #00a896;
+
+    --left-width: 80%;
+    --right-width: calc(100% - var(--left-width)); /*0.3%*/
+    --bottom-right-height: calc(100% - var(--top-right-height)); /*0.4%*/
+}
+
+.main-panel {
+    float: left;
+    max-height: 100vh;
+    width: var(--left-width);
+    padding: 0;
+}
+
+.right-panel {
+    float: right;
+    padding: 0;
+    width: var(--right-width);
+    /* height: 100vh; */
+    background-color: var(--main-bg-colour);
+}

@@ -1,29 +1,29 @@
 entities = [];
-starRadius = 10;
+starMass = 100;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(windowWidth * 0.7, windowHeight);
+  canvas.parent("main-panel");
   background(20);
-  centre = createVector(windowWidth / 2, windowHeight / 2); // Location of parent star
-  entities.push(new Celestial());
+  centre = createVector(width / 2, windowHeight / 2); // Location of parent star
 }
 
 function draw() {
   background(20);
   noStroke();
-  circle(windowWidth / 2, windowHeight / 2, starRadius);
-  centre.set(windowWidth / 2, windowHeight / 2);
+  circle(centre.x, centre.y, sqrt(starMass));
   for (i = 0; i < entities.length; i++) {
       for(j = 0; j < entities.length; j++) {
           if (i != j) {
             entities[i].updateEnt(entities[j].pos, entities[j].mass);
           }
       }
-    entities[i].draw();
-    if (entities[i].pos.x > windowWidth + 2500 || entities[i].pos.x < -2500 || entities[i].pos.y < -2500 || entities[i].pos.y > windowHeight + 2500) {
-      entities.splice(i, 1);
+      entities[i].updateEnt(centre, starMass);
+      entities[i].draw();
+      if (entities[i].pos.x > windowWidth + 2500 || entities[i].pos.x < -2500 || entities[i].pos.y < -2500 || entities[i].pos.y > windowHeight + 2500) {
+          entities.splice(i, 1);
+        }
     }
-  }
 }
 
 function mouseClicked() {
@@ -31,5 +31,6 @@ function mouseClicked() {
 }
 
 function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
+  centre.set((windowWidth * 0.8) / 2, windowHeight / 2);
+  resizeCanvas(windowWidth * 0.7, windowHeight);
 }
