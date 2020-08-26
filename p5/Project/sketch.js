@@ -1,32 +1,33 @@
 entities = [];
-mass = 0;
+starRadius = 10;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(20);
-  centre = createVector(windowWidth / 2, windowHeight / 2); // Location of barycentre
+  centre = createVector(windowWidth / 2, windowHeight / 2); // Location of parent star
+  entities.push(new Celestial());
 }
 
 function draw() {
-  background(10, 150);
+  background(20);
   noStroke();
-  circle(windowWidth / 2, windowHeight / 2, 10);
+  circle(windowWidth / 2, windowHeight / 2, starRadius);
   centre.set(windowWidth / 2, windowHeight / 2);
   for (i = 0; i < entities.length; i++) {
-    entities[i].updateEnt(centre, 10000);
+      for(j = 0; j < entities.length; j++) {
+          if (i != j) {
+            entities[i].updateEnt(entities[j].pos, entities[j].mass);
+          }
+      }
     entities[i].draw();
     if (entities[i].pos.x > windowWidth + 2500 || entities[i].pos.x < -2500 || entities[i].pos.y < -2500 || entities[i].pos.y > windowHeight + 2500) {
-      mass -= entities[i].mass;
       entities.splice(i, 1);
     }
-    // console.log(entities.length);
   }
-//   console.log(mass);
 }
 
 function mouseClicked() {
   entities.push(new Celestial());
-  mass += entities[i].mass;
 }
 
 function windowResized(){
