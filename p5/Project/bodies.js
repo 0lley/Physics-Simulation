@@ -3,11 +3,11 @@ class Celestial {
         this.radius = 10 + random() * 50;
         this.mass = Math.pow(this.radius, 2);
         this.pos = createVector(mouseX, mouseY);
-        this.vel = createVector(0, 0);
+        this.vel = createVector(2.5, 0);
         this.accel = createVector(0, 0);
         this.heading = 0;
         this.magnitude = 0;
-        this.bigG = 0.1;
+        this.bigG = 0.02;
     }
 
     draw() {
@@ -33,8 +33,8 @@ class Celestial {
         else {
             this.heading = 2 * Math.PI - Math.atan(abs(this.relX)/abs(this.relY));
         }
-        this.accel.set(this.magnitude * Math.sin(this.heading) * -1, this.magnitude * Math.cos(this.heading));
-        this.vel.sub(this.accel);
+        this.accel.set(this.magnitude * Math.sin(this.heading), this.magnitude * Math.cos(this.heading) * -1);
+        this.vel.add(this.accel);
         this.pos.add(this.vel);
     }
 }
