@@ -7,12 +7,12 @@ function setup() {
   canvas.style("position", "relative");
   canvas.style("order", "0");
   canvas.style("top", "0");
-  background(20);
+  background(5, 80);
   centre = createVector(windowWidth / 2, windowHeight * 0.8 / 2); // Location of parent star
 }
 
 function draw() {
-  background(20);
+  background(5, 80);
   noStroke();
   circle(centre.x, centre.y, sqrt(sqrt(starMass)));
   for (i = 0; i < entities.length; i++) {
