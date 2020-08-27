@@ -1,13 +1,12 @@
 class Celestial {
     constructor() {
-        this.radius = 10 + random() * 50;
+        this.radius = document.getElementById("entityMass").value;
         this.mass = Math.pow(this.radius, 2);
         this.pos = createVector(mouseX, mouseY);
-        this.vel = createVector(random() * 4 - 2, random() * 4 - 2);
+        this.vel = createVector(random() * 2 * document.getElementById("velocityMag").value - document.getElementById("velocityMag").value, random() * 2 * document.getElementById("velocityMag").value - document.getElementById("velocityMag").value);
         this.accel = createVector(0, 0);
         this.heading = 0;
         this.magnitude = 0;
-        this.bigG = 0.05;
     }
 
     draw() {
@@ -19,7 +18,7 @@ class Celestial {
         // this.vel.add(this.mass*10000/pow((dist(baryCentre, this.pos)), 2));
         this.relX = inputPos.x - this.pos.x;
         this.relY = inputPos.y - this.pos.y;
-        this.magnitude = (this.bigG * inputMass) / Math.pow(dist(this.pos.x, this.pos.y, inputPos.x, inputPos.y) + 5, 2);
+        this.magnitude = (bigG * inputMass) / Math.pow(dist(this.pos.x, this.pos.y, inputPos.x, inputPos.y) + 5, 2);
         // console.log(inputMass);
         if (this.relX >= 0 && this.relY <= 0) {
             this.heading = Math.atan(abs(this.relX)/abs(this.relY));
