@@ -17,7 +17,7 @@ class Celestial {
     updateEnt(inputPos, inputMass) {
         this.relX = inputPos.x - this.pos.x;
         this.relY = inputPos.y - this.pos.y;
-        this.magnitude = (document.getElementById("bigG").value / 10 * inputMass) / Math.pow(dist(this.pos.x, this.pos.y, inputPos.x, inputPos.y) + 5, 2); // This calculation determines the magnitude of the acceleration experienced by the object imparted by gravity
+        this.magnitude = (document.getElementById("bigG").value / 10 * inputMass) / Math.pow(dist(this.pos.x, this.pos.y, inputPos.x, inputPos.y) + 1, 2); // This calculation determines the magnitude of the acceleration experienced by the object imparted by gravity
         if (this.relX >= 0 && this.relY <= 0) {
             this.heading = Math.atan(abs(this.relX)/abs(this.relY));
         } // Solution if the object is southwest of the input entity
