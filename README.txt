@@ -1,0 +1,1 @@
+Open the index.html file under the "Project" folder in order to start the simulation.
