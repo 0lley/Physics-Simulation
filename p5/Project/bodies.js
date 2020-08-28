@@ -11,6 +11,7 @@ class Celestial {
 
     draw() {
         noStroke();
+        this.pos.add(this.vel); // Changes the position of the object based on its velocity
         circle(this.pos.x, this.pos.y, this.radius);
     } // Displays the object
 
@@ -32,6 +33,5 @@ class Celestial {
         } // Solution if the object is southeast of the input entity
         this.accel.set(this.magnitude * Math.sin(this.heading), this.magnitude * Math.cos(this.heading) * -1); // Sets the acceleration of the object, and uses trigonometric vector decomposition to accomplish this
         this.vel.add(this.accel); // Changes the velocity of the object based on its acceleration
-        this.pos.add(this.vel); // Changes the position of the object based on its velocity
     }
 }
